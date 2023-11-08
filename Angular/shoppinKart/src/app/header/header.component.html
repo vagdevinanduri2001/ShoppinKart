@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>ShoppinKart</span>
+    <button mat-icon-button  routerLink="/home">
+        <mat-icon>home</mat-icon>
+    </button>
+    <button mat-stroked-button *ngIf="userService.roleMatch(['admin'])"  routerLink="/admindashboard">Admin Dashboard</button>
+    <button mat-stroked-button *ngIf="userService.roleMatch(['user'])" routerLink="/dashboard">Dashboard</button>
+    <span class="space-buttons"></span>
+    <button mat-stroked-button  *ngIf="! isLoggedIn()" routerLink="/signup">SignUp</button>
+    <button mat-stroked-button *ngIf="! isLoggedIn()" routerLink="/login">Login</button>
+    <button mat-raised-button *ngIf="isLoggedIn()" color="warn" (click)="logout()">Logout</button>
+</mat-toolbar>
